@@ -44,7 +44,7 @@ class ProductList(ListView):
 
 
 class ProductCreate(CreateView):
-    template_name = 'product/create.html'
+    template_name = 'review/create.html'
     model = Product
     form_class = ProductForm
 

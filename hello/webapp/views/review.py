@@ -3,7 +3,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView, DeleteView, CreateView
 
 from webapp.forms import ReviewForm
-from webapp.models import Review
+from webapp.models import Review, Product
 
 
 class ReviewCreate(CreateView):
@@ -17,9 +17,11 @@ class ReviewCreate(CreateView):
         choice.review = review
         choice.save()
         form.save_m2m()
-        return redirect('review_view', pk=review.pk)
+        return redirect('product:view', pk=review.pk)
 
-
+    def has_permission(self):
+        return super().has_permission() and self.request.user in Product.objects.get(
+            pk=self.kwargs.get('pk')).user.all()
 
 
 class ReviewUpdateView(UpdateView):

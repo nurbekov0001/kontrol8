@@ -15,4 +15,4 @@ class SearchForm(forms.Form):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ('author', 'product', 'review', 'appraisal', 'moderated')
+        fields = ('author', 'review', 'appraisal', 'moderated')

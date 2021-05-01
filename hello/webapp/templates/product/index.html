@@ -8,7 +8,8 @@
     <div class="box">
         <h3><a href="{% url "product:view" product.pk %}">{{ product.name }}</a></h3>
              Описание: {{product.description }}<br/> Категория {{ product.category }}<br/>
-            фото {{ product.picture }}<br/><br/>
+         <img class="picture" src="{{ product.picture }}" width="250" height="250" alt="product picture">
+         <br/><br/>
     </div>
     {% endfor %}
 {% include 'partial/paginate.html' %}
