@@ -1,0 +1,56 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "телефон",
+    "category": "SAMSUNG",
+    "description": "samsung",
+    "picture": "user_pics/ahom-ru_20060528_640x480_kras.jpg"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "review": "отлисный телефон",
+    "appraisal": 5,
+    "moderated": true
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "review": "fssd",
+    "appraisal": 5,
+    "moderated": true
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 3,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "review": "sadas",
+    "appraisal": 5,
+    "moderated": false
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "product": 1,
+    "review": "dasd",
+    "appraisal": 0,
+    "moderated": false
+  }
+}
+]
