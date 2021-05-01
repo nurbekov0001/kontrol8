@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Product list</h1><br/> {% if not product %}
+<h2>Нет продуктов</h2>
+{% else %} {% include "partial/search_form.html" %} {% endif %}
+
+    {% for product in product %}
+    <div class="box">
+        <h3><a href="{% url "product:view" product.pk %}">{{ product.name }}</a></h3>
+             Описание: {{product.description }}<br/> Категория {{ product.category }}<br/>
+            фото {{ product.picture }}<br/><br/>
+    </div>
+    {% endfor %}
+{% include 'partial/paginate.html' %}
+{% endblock %}

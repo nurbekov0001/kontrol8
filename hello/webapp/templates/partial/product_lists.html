@@ -1,0 +1,15 @@
+{% for product in products %}
+    <div class="box">
+        <h3><a href="{% url "product:view" product.pk %}">{{ product.name }}</a></h3>
+             Описание: {{product.description }}<br/> Категория {{ product.category }}<br/>
+            фото {{ product.picture }}<br/><br/>
+    </div>
+
+{% empty %}
+    <h2 class="text-center">Нет продуктов </h2>
+{% endfor %}
+
+{% if is_paginate %}
+     {% include 'partial/paginate.html' %}
+{% endif %}
+

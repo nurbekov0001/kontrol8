@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block title %}Подтвердите удаление продукта{% endblock %} {% block page_header %}
+    Вы уверены, что хотите удалить продукт {{ product.name }}?{% endblock page_header %} {% block content%}
+<form action="{% url "product:delete" product.id %}", method="POST">
+    {% include 'partial/form.html' with button_text="Да, я хочу удалить этот продукт" %}
+    <button> <a href="{% url "product:view" product.id %}">Отмена!</a> </button>
+</form>
+{% endblock content %}
