@@ -1,0 +1,91 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "модератор",
+    "permissions": [
+      [
+        "add_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "change_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "delete_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "view_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "add_review",
+        "webapp",
+        "review"
+      ],
+      [
+        "change_review",
+        "webapp",
+        "review"
+      ],
+      [
+        "delete_review",
+        "webapp",
+        "review"
+      ],
+      [
+        "view_review",
+        "webapp",
+        "review"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$2tyKbMPEJcIEOXxFTA2X2O$4Fq2wsrSz7AvH39XiXtsclJOCH78OdJ534Mjyi+ybsM=",
+    "last_login": "2021-05-01T12:20:17.177Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-05-01T12:20:03.483Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$ZqNz40y6EFP1ZOHKQXhPfg$zBnp5Nu71on1MYtxdBwf04Wr7egXnl6KgB5wRAALHiA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "beka",
+    "first_name": "qwe",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-05-01T12:21:03Z",
+    "groups": [
+      [
+        "модератор"
+      ]
+    ],
+    "user_permissions": []
+  }
+}
+]

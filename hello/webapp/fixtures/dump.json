@@ -3,10 +3,33 @@
   "model": "webapp.product",
   "pk": 1,
   "fields": {
-    "name": "телефон",
+    "name": "zccz",
+    "category": "ACER",
+    "description": "xzcz",
+    "picture": "user_pics/unnamed_1_3vKANOj.jpg",
+    "user": []
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "dsadf",
     "category": "SAMSUNG",
-    "description": "samsung",
-    "picture": "user_pics/ahom-ru_20060528_640x480_kras.jpg"
+    "description": "sdafasd",
+    "picture": "user_pics/Снимок_экрана_от_2021-02-19_15-20-35.png",
+    "user": []
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "dfsaf",
+    "category": "ACER",
+    "description": "asdfas",
+    "picture": "user_pics/unnamed_coQghg9.jpg",
+    "user": []
   }
 },
 {
@@ -14,8 +37,8 @@
   "pk": 1,
   "fields": {
     "author": 1,
-    "product": 1,
-    "review": "отлисный телефон",
+    "product": 2,
+    "review": "sdafdasf",
     "appraisal": 5,
     "moderated": true
   }
@@ -24,10 +47,10 @@
   "model": "webapp.review",
   "pk": 2,
   "fields": {
-    "author": 1,
-    "product": 1,
-    "review": "fssd",
-    "appraisal": 5,
+    "author": 2,
+    "product": 2,
+    "review": "asfdsdfsa",
+    "appraisal": 4,
     "moderated": true
   }
 },
@@ -36,20 +59,9 @@
   "pk": 3,
   "fields": {
     "author": 1,
-    "product": 1,
-    "review": "sadas",
-    "appraisal": 5,
-    "moderated": false
-  }
-},
-{
-  "model": "webapp.review",
-  "pk": 4,
-  "fields": {
-    "author": 1,
-    "product": 1,
-    "review": "dasd",
-    "appraisal": 0,
+    "product": 3,
+    "review": "asfdfsdf",
+    "appraisal": 3,
     "moderated": false
   }
 }
