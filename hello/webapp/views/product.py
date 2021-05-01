@@ -1,8 +1,11 @@
 from urllib.parse import urlencode
+
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
-from webapp.forms import ProductForm, SearchForm
-from webapp.models import Product
+from webapp.forms import ProductForm, SearchForm, ReviewForm
+from webapp.models import Product, Review
 from django.views.generic import CreateView, DetailView, ListView, UpdateView, DeleteView
 
 
@@ -43,14 +46,35 @@ class ProductList(ListView):
         return context
 
 
-class ProductCreate(CreateView):
+class ProductCreate(PermissionRequiredMixin, CreateView):
     template_name = 'review/create.html'
     model = Product
     form_class = ProductForm
+    permission_required = 'webapp.add_product'
 
 
     def get_success_url(self):
         return reverse('product:view', kwargs={'pk': self.object.pk})
+
+
+class ReviewCreate(PermissionRequiredMixin, CreateView):
+    model = Review
+    template_name = 'review/create.html'
+    form_class = ReviewForm
+    permission_required = 'webapp.add_review'
+
+    def form_valid(self, form):
+        review = get_object_or_404(Review, pk=self.kwargs.get('pk'))
+        choice = form.save(commit=False)
+        choice.review = review
+        choice.save()
+        form.save_m2m()
+        return redirect('product:view', pk=review.pk)
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in Product.objects.get(
+            pk=self.kwargs.get('pk')).user.all()
+
 
 
 class ProductView(DetailView):
@@ -60,11 +84,13 @@ class ProductView(DetailView):
 
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     model = Product
     template_name = 'product/update.html'
     form_class = ProductForm
     context_object_name = 'product'
+    permission_required = 'webapp.change_product'
+
 
 
     def get_success_url(self):
@@ -75,6 +101,7 @@ class ProductDeleteView(DeleteView):
     template_name = 'product/delete.html'
     model = Product
     context_object_name = 'product'
+    permission_required = 'webapp.delete_product'
     success_url = reverse_lazy('product:list')
 
 

@@ -3,11 +3,12 @@ from webapp.views.product import (
     ProductCreate,
     ProductDeleteView,
     ProductUpdateView,
-    ProductView
+    ProductView,
+    ReviewCreate,
+
 )
 from webapp.views.review import (
     ReviewDeleteView,
     ReviewUpdateView,
-    ReviewCreate,
 
 )

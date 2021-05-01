@@ -1,10 +1,5 @@
 {% extends 'base.html' %}
 {% block title %}Пользователь{% endblock %}
-{#{% block menu_links %}#}
-{#    <li><a href="{% url "accounts:password_change" user_obj.pk %}">Смена пароля</a></li>#}
-{#    <li><a href="{% url "accounts:password_change" %}">Смена пароля</a></li>#}
-{#    <li><a href="{% url 'accounts:change' user_obj.pk %}">Редактировать</a></li>#}
-{#{% endblock %}#}
 
 {% block menu %}
     {% if request.user == user_obj %}
@@ -25,6 +20,6 @@
     <p>Сылка на GitHub: {{ user_obj.profile.link }}</p>
     <p>Почта: {{ user_obj.email }}</p>
 
-    <h2 class="text-center clear">Статьи автора:</h2>
-    {% include 'partial/product_lists.html' %}
+    <h2 class="text-center clear">Отзывы автора:</h2>
+    {% include 'product/index.html' %}
 {% endblock %}

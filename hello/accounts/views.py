@@ -19,7 +19,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('project:project_list')
+            return redirect('product:list')
         else:
             context['has_error'] = True
     return render(request, 'login.html', context=context)
@@ -27,7 +27,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('project:project_list')
+    return redirect('product:list')
 
 
 def register_view(request, *args, **kwargs):
@@ -37,7 +37,7 @@ def register_view(request, *args, **kwargs):
             user = form.save()
             Profile.objects.create(user=user)
             login(request, user)
-            return redirect('project:project_list')
+            return redirect('product:list')
     else:
         form = MyUserCreationForm()
     return render(request, 'user_create.html', context={'form': form})

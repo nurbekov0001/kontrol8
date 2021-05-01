@@ -12,7 +12,8 @@ class Product(models.Model):
                                 verbose_name="категория товара")
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="Описание товара")
     picture = models.ImageField(null=True, blank=True, verbose_name='Каринка', upload_to='user_pics')
-
+    user = models.ManyToManyField('auth.User', related_name="projects",
+                                  verbose_name='Пользователь')
 
     class Meta:
         db_table = 'Products'
