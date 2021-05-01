@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block page_header %}Добавить JN{% endblock page_header %} {% block content %}
+<form action="{% url "product:review_add" %}" method="post">
+    {% include "partial/form.html" with button_text="Создать отзыв" %}
+</form>
+{% endblock content %}

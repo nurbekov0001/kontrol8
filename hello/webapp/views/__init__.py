@@ -5,3 +5,9 @@ from webapp.views.product import (
     ProductUpdateView,
     ProductView
 )
+from webapp.views.review import (
+    ReviewDeleteView,
+    ReviewUpdateView,
+    ReviewCreate,
+
+)
