@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <h1>Product list</h1><br/> {% if not product %}
 <h2>Нет продуктов</h2>
@@ -8,7 +9,11 @@
     <div class="box">
         <h3><a href="{% url "product:view" product.pk %}">{{ product.name }}</a></h3>
              Описание: {{product.description }}<br/> Категория {{ product.category }}<br/>
-         <img class="picture" src="{{ product.picture }}" width="250" height="250" alt="product picture">
+        {% if not product.picture %}
+     picture: <img src="{% static "img/foto.jpg" %}" width="250" height="250" alt="product picture">
+{% else %}
+       picture: <img class="picture" src="{{ product.picture }}" width="250" height="250" alt="product picture">
+{% endif %}
          <br/><br/>
     </div>
     {% endfor %}
